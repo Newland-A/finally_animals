@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
 
-  def signup
+  def new
+
+  end
+
+  def show
 
   end
 
