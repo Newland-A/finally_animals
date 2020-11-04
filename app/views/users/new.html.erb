@@ -1,6 +1,6 @@
 <h1>Create A New Account</h1>
 
-<%= form_for signup_path do |f| %>
+<%= form_for @user do |f| %>
 
   <%#= f.label "Select A vet" %>
   <%#= f.select_tag 'vet_id', options_for_select(@users.collect { |user| [u.name, u.id] } ) %>
@@ -9,7 +9,7 @@
   <%= f.text_field :first_name %><br />
 
   <%= f.label :last_name %>:
-  <%= f.text_field :lastname %><br />
+  <%= f.text_field :last_name %><br />
 
   <%= f.label :email %>:
   <%= f.text_field :email %><br />

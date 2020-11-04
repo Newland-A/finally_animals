@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 
   has_many :owners, class_name: "User", foreign_key: "vet_id"
-  belongs_to :vet, class_name: "User"
+  belongs_to :vet, class_name: "User", optional: true
   has_many :companies
   has_many :animals, through: :companies
 
