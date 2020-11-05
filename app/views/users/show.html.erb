@@ -1,25 +1,26 @@
 <h1>Users Show Page</h1>
-<h3> Please tell us all about your animals</h3>
+<%# <h3> Please tell us all about your animals</h3> %>
 
-<%= link_to "New Animal", new_animal_path %>
+
 
 <h3>Please a choose a Vet you would like to see or have seen</h3>
 
 
 <h3>What location would you like to visit?</h3>
 
-<h3>List of your animals</h3>
-<% if @user_animals %>
-<% @user_animals.each do |animal| %>
-  <h2>Animals Name: <%= @animal.name %></h2>
-  <h2>Animals Age: <%= @animal.age %></h2>
-  <h2>Animals Gender: <%= @animal.gender %></h2>
-  <h2>Animals Weight: <%= @animal.weight %></h2>
-  <h2>Animals Species: <%= @animal.species %></h2>
-  <h2>Animals Breed: <%= @animal.breed %></h2>
-  <h2>Animals Color: <%= @animal.color %></h2>
-  <h2>Animals Medical_info: <%= @animal.medical_info %></h2>
-  <h2>Animals Altered: <%= @animal.altered %></h2>
-<% end %>
 
+<h3>List of your animals</h3>
+<% if @user_animals == true %>
+<% @user_animals.each do |animal| %>
+  <h2>Animals Name: <%= animal.name %></h2>
+  <h2>Animals Age: <%= animal.age %></h2>
+  <h2>Animals Gender: <%= animal.gender %></h2>
+  <h2>Animals Weight: <%= animal.weight %></h2>
+  <h2>Animals Species: <%= animal.species %></h2>
+  <h2>Animals Breed: <%= animal.breed %></h2>
+  <h2>Animals Color: <%= animal.color %></h2>
+  <h2>Animals Medical_info: <%= animal.medical_info %></h2>
+  <h2>Animals Altered: <%= animal.altered %></h2>
+<% end %>
+<%= link_to "New Animal", new_animal_path %>
 <% end%>

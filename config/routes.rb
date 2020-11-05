@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create' 
   get 'logout', to: 'sessions#destroy', as: 'logout'
   
-  scope :animals do 
-    resources :users
-  end
+  # scope :animals do 
+  #   resources :users
+  # end
 end

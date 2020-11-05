@@ -15,6 +15,7 @@
 
   <h2>Would you like to see all of your animals?</h2>
   <%# figure this out with corinna %>
-  <%= link_to "Show all animals", controller: "animals", action: "index", id: @user_animals %>
+  <%= link_to "Show all animals", controller: "users", action: "show", user_path(current_user) %>
 <%# end %>
 <%# user_path(@user)  %>
+<%# user_path(current_user)% %>

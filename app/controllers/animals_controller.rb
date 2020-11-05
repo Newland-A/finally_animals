@@ -1,9 +1,9 @@
 class AnimalsController < ApplicationController
 
-  def index
-    @user_animals = current_user.animals
-    # binding.pry
-  end
+  # def index
+  #   @user_animals = current_user.animals
+  #   # binding.pry
+  # end
 
   def new
     @animal = Animal.new
@@ -25,8 +25,8 @@ class AnimalsController < ApplicationController
 
   def show
     @animal = Animal.find_by_id(params[:id])
-    # @user_animals = current_user.animals
-    # binding.pry
+    @user_animals = current_user.animals
+    binding.pry
   end
 
   private
