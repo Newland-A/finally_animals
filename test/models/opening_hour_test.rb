@@ -1,9 +1,7 @@
 require 'test_helper'
 
-class SessionsControllerTest < ActionDispatch::IntegrationTest
+class OpeningHourTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
-
-  
 end
