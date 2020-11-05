@@ -1,6 +1,6 @@
 <% if current_user %>
   Logged in as <%= current_user.full_name %>.
-  <%= link_to "List Animals", users_path %>
+  <%= link_to "List Animals", user_path(current_user) %>
   <%= link_to "Log Out", logout_path %>
 <% else %>
   <%= link_to "Sign Up", signup_path %> or 

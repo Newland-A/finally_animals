@@ -11,4 +11,7 @@ class User < ApplicationRecord
 
   validates_length_of :password, minimum: 8, if: Proc.new { | user | user.password.present? }
 
+  def full_name
+    "#{self.first_name}" + " #{self.last_name.capitalize}"
+  end
 end

@@ -5,10 +5,15 @@ Rails.application.routes.draw do
   
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-
+  resources :animals
+  resources :companies
+  
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   post 'login', to: 'sessions#create' 
   get 'logout', to: 'sessions#destroy', as: 'logout'
   
+  scope :animals do 
+    resources :users
+  end
 end

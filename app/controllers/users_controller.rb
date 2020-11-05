@@ -6,10 +6,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    binding.pry
+    # binding.pry
     if @user.save
       session[:user_id] = @user.id
-      redirect_to @users
+      redirect_to @user
     else
       render :new
     end
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
   def show
     @user_animals = current_user.animals
-    binding.pry
+    # binding.pry
   end
 
   private

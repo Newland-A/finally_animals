@@ -6,4 +6,5 @@ class Company < ApplicationRecord
   def open?
     opening_hours.where("? BETWEEN opens AND closes", Time.zone.now).any?
   end
+  
 end

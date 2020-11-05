@@ -2,6 +2,7 @@ class AnimalsController < ApplicationController
 
   def index
     @user_animals = current_user.animals
+    # binding.pry
   end
 
   def new
@@ -9,7 +10,7 @@ class AnimalsController < ApplicationController
   end
 
   def create 
-    @animal = Animal.new(animal_params)
+    @animal = current_user.animals.build(animal_params)
     if @animal.save
       redirect_to @animal, notice: "Animal Created"
     else
@@ -24,12 +25,14 @@ class AnimalsController < ApplicationController
 
   def show
     @animal = Animal.find_by_id(params[:id])
-    @user_animals = current_user.animals
+    # @user_animals = current_user.animals
     # binding.pry
   end
 
   private
+
     def animal_params
       params.require(:animal).permit(:name, :age, :gender, :weight, :species, :breed, :color, :medical_info, :altered)
     end
+
 end
