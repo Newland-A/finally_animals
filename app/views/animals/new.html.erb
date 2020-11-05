@@ -1,0 +1,29 @@
+<%= form_for @animal do |f| %>
+  <strong><%= f.label :name %>:</strong>
+  <%= f.text_field :name %><br />
+
+  <strong><%= f.label :age %>:</strong>
+  <%= f.number_field :age %><br />
+
+  <strong><%= f.label :gender %>:</strong>
+  <%= f.text_field :gender %><br />
+
+  <strong><%= f.label :weight %>:</strong>
+  <%= f.number_field :weight %><br />
+
+  <strong><%= f.label :species %>:</strong>
+  <%= f.text_field :species %><br />
+  
+  <strong><%= f.label :breed %>:</strong>
+  <%= f.text_field :breed %><br />
+
+  <strong><%= f.label :color %>:</strong>
+  <%= f.text_field :color %><br />
+
+  <strong><%= f.label :medical_info %>:</strong><br />
+  <%= f.text_area :medical_info, :cols => 20, :rows => 10 %><br />
+
+  <%= f.select :altered, options_for_select(["Is animal altered?", "Yes", "No", "Scheduled For Altering", "Pregnant", "Other"]) %><br /><br />
+ 
+ <%= f.submit "Create Animal" %>
+<% end %>
