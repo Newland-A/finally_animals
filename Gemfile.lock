@@ -291,6 +291,7 @@ DEPENDENCIES
   faker
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  omniauth
   omniauth-github!
   omniauth-twitter
   pry
