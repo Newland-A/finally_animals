@@ -11,6 +11,7 @@ class AnimalsController < ApplicationController
 
   def create 
     @animal = current_user.animals.build(animal_params)
+    binding.pry
     if @animal.save
       redirect_to @animal, notice: "Animal Created"
     else
@@ -29,6 +30,11 @@ class AnimalsController < ApplicationController
     # binding.pry
   end
 
+  def destroy
+    @animal - Animal.find_by_id(params[:id])
+    @animal.destroy
+  end
+  
   private
 
     def animal_params

@@ -24,8 +24,11 @@ gem 'bcrypt', '~> 3.1.7'
 
 # omniauth installation 
 gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'koala'
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem 'omniauth-twitter'
+gem 'twitter'
 # Use Faker gem to insert data
 gem 'faker'
 # Use Active Storage variant

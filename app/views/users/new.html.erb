@@ -3,7 +3,7 @@
 <%= form_for @user do |f| %>
 
   <%= f.label "Select A vet" %>
-  <%= f.select_tag 'vet_id', options_for_select(@users.collect { |user| [u.name, u.id] } ) %>
+  <%#= f.select_tag 'vet_id', options_for_select(@users.collect { |user| [u.name, u.id] } ) %> 
 
   <%= f.label :first_name %>:
   <%= f.text_field :first_name %><br />

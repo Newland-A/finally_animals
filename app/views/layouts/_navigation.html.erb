@@ -8,7 +8,7 @@
     <ul class="nav navbar-nav pull-right">
       <li><%= link_to 'Home', root_path %></li>
       <% if current_user %>
-          <li>Signed in as <%= current_user.name %></li>
+          <li>Signed in as <%= current_user.full_name %></li>
         <% else %>
           <li><%= link_to "Sign in with Twitter", "/auth/twitter" %></li>
         <% end %>

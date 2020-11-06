@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   post 'login', to: 'sessions#create' 
   get 'logout', to: 'sessions#destroy', as: 'logout'
-  get '/auth/:provider/callback', to: 'sessions#create'
+  get '/auth/facebook/callback', to: 'sessions#create'
+  get '/auth/github/callback', to: 'sessions#create_with_omni'
   # scope :animals do 
   #   resources :users
   # end
