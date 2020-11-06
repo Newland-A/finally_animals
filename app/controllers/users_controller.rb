@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
   def show
     @user_animals = current_user.animal_ids
-    binding.pry
+    # binding.pry
   end
 
   def destroy

@@ -22,5 +22,7 @@ end
   Animal.create(name: Faker::Creature::Animal.name, age: Faker::Creature::Dog.age, gender: Faker::Gender.binary_type, weight: rand(50..2000), breed: Faker::Creature::Dog.breed, species: "Horse", color: "Blue Roan", medical_info: Faker::Lorem.unique, altered: false)
 end
 
-Company.create(location: Faker::Company.name, user_id: rand(1..20), animal_id: rand(1.20), appointment_time: Faker::Date.between_except(from: 1.year.ago, to: 1.year.from_now, excepted: Date.today), address: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state)
+20.times do
+Company.create(location: Faker::Company.name, user_id: rand(1..20), animal_id: rand(1..20), appointment_time: Faker::Date.between_except(from: 1.year.ago, to: 1.year.from_now, excepted: Date.today), address: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state)
   # Faker::PhoneNumber.cell_phone
+end

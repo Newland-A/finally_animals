@@ -31,14 +31,14 @@ class AnimalsController < ApplicationController
   end
 
   def destroy
-    @animal - Animal.find_by_id(params[:id])
+    @animal = Animal.find_by_id(params[:id])
     @animal.destroy
   end
-  
+
   private
 
     def animal_params
-      params.require(:animal).permit(:name, :age, :gender, :weight, :species, :breed, :color, :medical_info, :altered)
+      params.require(:animal).permit(:name, :age, :gender, :weight, :species, :breed, :color, :medical_info, :altered, company_ids:[])
     end
 
 end
