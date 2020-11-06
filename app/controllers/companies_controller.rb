@@ -15,7 +15,7 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @company = Company.find_by(params[:id])
+    @company = current_user.location
   end
 
   private

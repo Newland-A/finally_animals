@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
   def show
     @user_animals = current_user.animal_ids
-    # binding.pry
+    binding.pry
   end
 
   def destroy
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :username, :password, :password_confirmation)
+    params.require(:user).permit(:first_name, :last_name, :email, :username, :password, :password_confirmation, vet_id: [])
   end
 
 end

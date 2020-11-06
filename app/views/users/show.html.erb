@@ -1,15 +1,9 @@
 <h1>Users Show Page</h1>
-<%# <h3> Please tell us all about your animals</h3> %>
 
+<h3>Location You have selected</h3>
+<%#= @company.location %>
 
-
-<h3>Please a choose a Vet you would like to see or have seen</h3>
-
-
-<h3>What location would you like to visit?</h3>
-
-
-<h3>List of your animals</h3>
+<h3>List of your animals or Create a new pet</h3>
 <% if @user_animals  %>
 <% @user_animals.each do |animal| %>
   <h2>Animals Name: <%= animal.name %></h2>

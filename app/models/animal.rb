@@ -1,12 +1,14 @@
 class Animal < ApplicationRecord
   has_many :companies
   has_many :users, through: :companies
-  accepts_nested_attributes_for :companies
+  # accepts_nested_attributes_for :companies
 
-  def companies_attributes=(company_attrs)
-    company_attrs.values.each do |animal_attr|
+  def companies_attributes=(company_params)
+    binding.pry
+    
+    company_params.values.each do |company_attrs|
       if company_attrs("location").present?
-        company = Company.find_or_create_by(animal_attr)
+        company = Company.find_or_create_by(company_attrs)
         self.animals << company
       end
     end
