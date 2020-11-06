@@ -17,8 +17,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user_animals = current_user.animals
-    # binding.pry
+    @user_animals = current_user.animal_ids
+    binding.pry
   end
 
   private

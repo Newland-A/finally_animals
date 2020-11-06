@@ -7,11 +7,11 @@ require 'faker'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 10.times do
-  User.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.email, username: Faker::Internet.username(specifier: 8), password: "password", is_owner: false, is_vet: true, animal_id: Faker::Number.digit, vet_id: rand(1..10))
+  User.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.email, username: Faker::Internet.username(specifier: 8), password: "password", is_owner: false, is_vet: true, vet_id: rand(1..10))
 end
 
 10.times do
-  User.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.email, username: Faker::Internet.username(specifier: 8), password: "password", is_owner: true, is_vet: false, animal_id: Faker::Number.digit, vet_id: rand(1..10))
+  User.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.email, username: Faker::Internet.username(specifier: 8), password: "password", is_owner: true, is_vet: false,  vet_id: rand(1..10))
 end
 
 10.times do 

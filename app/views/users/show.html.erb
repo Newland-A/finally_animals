@@ -10,7 +10,7 @@
 
 
 <h3>List of your animals</h3>
-<% if @user_animals == true %>
+<% if @user_animals  %>
 <% @user_animals.each do |animal| %>
   <h2>Animals Name: <%= animal.name %></h2>
   <h2>Animals Age: <%= animal.age %></h2>
