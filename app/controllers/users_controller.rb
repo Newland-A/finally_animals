@@ -13,11 +13,10 @@ class UsersController < ApplicationController
     else
       render :new
     end
-
   end
 
   def show
-    @user_animals = current_user.animal_ids
+    @user_animals = current_user.animals
     binding.pry
   end
 
@@ -33,9 +32,9 @@ class UsersController < ApplicationController
   end
 
   private
-
+  # strong params
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :username, :password, :password_confirmation, vet_id: [])
+    params.require(:user).permit(:first_name, :last_name, :email, :username, :password, :password_confirmation)
   end
 
 end

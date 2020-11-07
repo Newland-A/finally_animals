@@ -2,17 +2,14 @@
 
 <%= form_for @user do |f| %>
 
-  <%= f.label "Select A Vets Location:" %>
-  <%= f.collection_select :company_ids, Company.all, :id, :location %> <br />
-
   <%= f.label :first_name %>:
-  <%= f.text_field :first_name %><br />
+  <%= f.text_field :first_name, autofocus: true %><br />
 
   <%= f.label :last_name %>:
   <%= f.text_field :last_name %><br />
 
   <%= f.label :email %>:
-  <%= f.email_field :email, autofocus: true, autocomplete: "email" %><br />
+  <%= f.email_field :email, autocomplete: "email" %><br />
 
   <%= f.label :username %>:
   <%= f.text_field :username %><br />

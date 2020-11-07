@@ -6,13 +6,14 @@ class AnimalsController < ApplicationController
   # end
 
   def new
-    @animal = Animal.new
+    @animal = current_user.animals.build
   end
 
   def create 
     @animal = current_user.animals.build(animal_params)
-    # binding.pry
+    binding.pry
     if @animal.save
+      binding.pry
       redirect_to @animal, notice: "Animal Created"
     else
       flash.now[:alert] = "Please fill out all information:"
@@ -38,7 +39,7 @@ class AnimalsController < ApplicationController
   private
 
     def animal_params
-      params.require(:animal).permit(:name, :age, :gender, :weight, :species, :breed, :color, :medical_info, :altered, company_ids:[])
+      params.require(:animal).permit(:name, :age, :gender, :weight, :species, :breed, :color, :medical_info, :altered, :company_ids)
     end
 
 end

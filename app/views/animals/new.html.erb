@@ -1,5 +1,6 @@
 <%= form_for @animal do |f| %>
   <%= f.collection_select :company_ids, Company.all, :id, :location %><br />
+
   <strong><%= f.label :name %>:</strong>
   <%= f.text_field :name %><br />
 
