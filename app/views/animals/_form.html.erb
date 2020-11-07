@@ -1,0 +1,48 @@
+ <%= form_for @animal do |f| %>
+  <%= f.collection_select :company_ids, Company.all, :id, :location %><br />
+
+  <strong><%= f.label :name %>:</strong>
+  <%= f.text_field :name %><br />
+
+  <strong><%= f.label :age %>:</strong>
+  <%= f.number_field :age %><br />
+
+  <strong><%= f.label :gender %>:</strong>
+  <%= f.text_field :gender %><br />
+
+  <strong><%= f.label :weight %>:</strong>
+  <%= f.number_field :weight %><br />
+
+  <strong><%= f.label :species %>:</strong>
+  <%= f.text_field :species %><br />
+  
+  <strong><%= f.label :breed %>:</strong>
+  <%= f.text_field :breed %><br />
+
+  <strong><%= f.label :color %>:</strong>
+  <%= f.text_field :color %><br />
+
+  <strong><%= f.label :medical_info %>:</strong><br />
+  <%= f.text_area :medical_info, :cols => 20, :rows => 10, placeholder: "Enter any medications or injurys or surgeries the animals has had, please inform us of any medical concerns" %><br />
+
+  <%= f.label "Is Animal Altered?" %><br />
+  
+  <%= f.check_box("altered", {:multiple => true }, "Yes", nil )%>
+  <%= f.label "Yes" %><br />
+  <%= f.check_box("altered", {:multiple => true }, "No", nil )%>
+  <%= f.label "No" %><br />
+  <%= f.check_box("altered", {:multiple => true }, "Scheduled", nil )%>
+  <%= f.label "Scheduled for altering" %><br />
+  <%= f.check_box("altered", {:multiple => true }, "Pregnant", nil )%>
+  <%= f.label "Pregnant" %><br />
+  <%= f.check_box("altered", {:multiple => true }, "Other", nil )%>
+  <%= f.label "Other" %><br /><br />
+
+  <%#= f.collection_check_boxes(:animal, :altered, Animal.altered, :id) do |b|
+    b.label { b.check_box }
+   end
+   %>
+  <%= f.submit %>
+<% end %>
+
+<%# , options_for_select(["Is animal altered?", "Yes", "No", "Scheduled For Altering", "Pregnant", "Other"]) %>

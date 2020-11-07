@@ -17,13 +17,19 @@ class UsersController < ApplicationController
 
   def show
     @user_animals = current_user.animals
-    binding.pry
+    # binding.pry
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    redirect_to user_path(@user)
   end
 
   def destroy
-    @user = User.find_by_id(params[:id])
+    @user = User.find_by_id(params[:animal_id])
     if @user.user_id == current_user.id
-      @user.destroy
+      @user.destroy!
       flash.now[:alert] = "Your user has been deleted!!!"
     else
       @user.destroy

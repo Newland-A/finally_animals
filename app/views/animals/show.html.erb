@@ -1,5 +1,6 @@
 <h1>Hello <%= current_user.full_name %></h1>
 <%#= @all_animal.each do |animal| %>
+  
   <h2>Animals Name: <%= @animal.name %></h2>
   <h2>Animals Age: <%= @animal.age %></h2>
   <h2>Animals Gender: <%= @animal.gender %></h2>
@@ -14,7 +15,6 @@
   <%= link_to "Add Another Animal", new_animal_path %>
 
   <h2>Would you like to see all of your animals?</h2>
-  <%# figure this out with corinna %>
   <%= link_to "Show all animals", user_path(current_user) %>
 <%# end %>
 <%# user_path(@user)  %>

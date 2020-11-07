@@ -3,19 +3,22 @@
 <h3>Location You have selected</h3>
 <%#= @company.location %>
 
-<h3>List of your animals or Create a new pet</h3>
+<h3>List of your animals or Create a new animal</h3>
 <% if @user_animals  %>
 <% @user_animals.each do |animal| %>
-  <h2>Animals Name: <%= animal.name %></h2>
-  <h2>Animals Age: <%= animal.age %></h2>
-  <h2>Animals Gender: <%= animal.gender %></h2>
-  <h2>Animals Weight: <%= animal.weight %></h2>
-  <h2>Animals Species: <%= animal.species %></h2>
-  <h2>Animals Breed: <%= animal.breed %></h2>
-  <h2>Animals Color: <%= animal.color %></h2>
-  <h2>Animals Medical_info: <%= animal.medical_info %></h2>
-  <h2>Animals Altered: <%= animal.altered %></h2>
+  <h5>Find a way to display location choosen</h5>
+  <h4>Animals Name: <%= animal.name %></h4>
+  <h4>Animals Age: <%= animal.age %></h4>
+  <h4>Animals Gender: <%= animal.gender %></h4>
+  <h4>Animals Weight: <%= animal.weight %></h4>
+  <h4>Animals Species: <%= animal.species %></h4>
+  <h4>Animals Breed: <%= animal.breed %></h4>
+  <h4>Animals Color: <%= animal.color %></h4>
+  <h4>Animals Medical_info: <%= animal.medical_info %></h4>
+  <h4>Animals Altered: <%= animal.altered %></h4>
+  <button><%= link_to "Edit Animal", edit_animal_path %></button>
+  <button><%= link_to "Delete Animal", @animal, :confirm => "Are you sure you want to delete this animal?", :method => :delete %></button>
 <% end %>
 <%#= link_to "Delete Animal", %>
-<%= link_to "New Animal", new_animal_path %>
+<button><%= link_to "New Animal", new_animal_path %></button>
 <% end%>
