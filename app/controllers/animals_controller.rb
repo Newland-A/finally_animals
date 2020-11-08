@@ -1,9 +1,11 @@
 class AnimalsController < ApplicationController
-
-  # def index
+  before_action :set_animal, only: [:show, :edit, :update, :destroy]
+  
+  def index
   #   @user_animals = current_user.animals
+    @animal = Animal.all
   #   # binding.pry
-  # end
+  end
 
   def new
     @animal = current_user.animals.build
@@ -22,36 +24,39 @@ class AnimalsController < ApplicationController
   end
 
   def edit
-    @animal = Animal.find_by_id(params[:id])
+    if !@animal #= Animal.find_by_id(params[:id])
+      redirect_to animal_path
+    end
   end
 
   def update
-    @animal = Animal.find(params[:id])
-    @animal.update(animal_params)
-    redirect_to animal_path(@animal)
-  end
-
-  def show
-    @animal = Animal.find_by_id(params[:id])
-    # @user_animals = current_user.animals
-    # binding.pry
-  end
-
-  def delete
-    @animal = Animal.find(params[:id])
-    if @animal == current_user.id
-      @animal.delete
-      flash.now[:alert] = "Your animal has been deleted"
+    if @animal
+    # @animal = Animal.find(params[:id])
+      @animal.update(animal_params)
+      if @animal.errors.any?
+        render "edit"
+      else
+        redirect_to @animal
+      end
     else
-      @animal.delete
+      render "edit"
     end
+  end
+
+  def destroy
+    @animal.destroy
+    flash.now[:alert] = "Your animal has been deleted"
     redirect_to new_animal_path
   end
 
   private
 
-    def animal_params
-      params.require(:animal).permit(:name, :age, :gender, :weight, :species, :breed, :color, :medical_info, :altered, :company_ids)
-    end
+  def set_animal
+    @animal = Animal.find_by_id(params[:id])
+  end
+    
+  def animal_params
+    params.require(:animal).permit(:name, :age, :gender, :weight, :species, :breed, :color, :medical_info, :altered, :company_ids)
+  end
 
 end

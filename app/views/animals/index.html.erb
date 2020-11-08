@@ -1,0 +1,8 @@
+<h1>Animals Display</h1>
+<ul>
+  <% @animal.each do |animal| %>
+    <li><%= link_to animal.name, animal %></li>
+  <% end %>
+</ul>
+<p><%= link_to "Create a new animal", new_animal_path %></p>
+<p><%= link_to "Google", "http://google.com" %></p>

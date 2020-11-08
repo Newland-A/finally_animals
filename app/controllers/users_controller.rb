@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  before_action :set_user, only: [:edit, :update, :destroy]
   def new
     @user = User.new
   end
@@ -21,24 +21,24 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
     @user.update(user_params)
     redirect_to user_path(@user)
   end
 
   def destroy
-    @user = User.find_by_id(params[:animal_id])
-    if @user.user_id == current_user.id
-      @user.destroy!
-      flash.now[:alert] = "Your user has been deleted!!!"
-    else
+    # @user = User.find_by_id(params[:animal_id])
       @user.destroy
-    end
-    redirect_to new_user_path
+      flash.now[:alert] = "Your user has been deleted!!!"
+      redirect_to new_user_path
   end
 
   private
   # strong params
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :username, :password, :password_confirmation)
   end
