@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
   resources :animals
+  delete '/animals/:id', to: "users#destroy"
   resources :companies
   
   get 'signup', to: 'users#new', as: 'signup'

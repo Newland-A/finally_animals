@@ -31,7 +31,7 @@
           <h4>Logged in: <%= current_user.full_name %>!</h4>      
           <button><a href="/logout">Log Out</a></button>
           <button><a href="/">Home</a></button>
-          
+          <button><%= link_to "List Animals", user_path(current_user) %></button>
       <% else !logged_in? %>
           <button><a href="/login">Log In</a></button>
           <button><a href="/signup">Sign Up!</a></button>
