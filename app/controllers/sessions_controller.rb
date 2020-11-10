@@ -19,10 +19,9 @@ class SessionsController < ApplicationController
   
   def create_with_omni
     # binding.pry
-    @user = User.find_or_create_by(uid: auth['uid']) do |u|
-      u.name = auth['info']['name']
-      u.email = auth['info']['email']
-      u.image = auth['info']['image']
+    @user = User.find_or_create_from_auth_hash(auth_hash)
+    self.current_user = @user
+    redirect_to '/'
     end
   end
 
