@@ -5,8 +5,9 @@
 
 <h3>List of your animals or Create a new animal</h3>
 <% if @user_animals  %>
+  
 <% @user_animals.each do |animal| %>
-  <h5>Find a way to display location choosen</h5>
+  
   <h4>Animals Name: <%= animal.name %></h4>
   <h4>Animals Age: <%= animal.age %></h4>
   <h4>Animals Gender: <%= animal.gender %></h4>
@@ -19,6 +20,6 @@
   <button><%= link_to "Edit Animal", edit_animal_path %></button>
   
 <% end %>
-<%#= link_to "Delete Animal", %>
 <button><%= link_to "New Animal", new_animal_path %></button>
+<button><%= link_to "Edit Your info", edit_user_path %></button>
 <% end%>
