@@ -1,13 +1,18 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :destroy]
 
+  def index
+    @user = User.find(user_params)
+    
+  end
+
   def new
     @user = User.new
   end
 
   def create
     @user = User.new(user_params)
-    binding.pry
+    # binding.pry
     if @user.save
       session[:user_id] = @user.id
       redirect_to @user
@@ -18,6 +23,7 @@ class UsersController < ApplicationController
 
   def show
     @user_animals = current_user.animals
+    @companies = Company.find_by_id(params[:id])
     # binding.pry
   end
 
