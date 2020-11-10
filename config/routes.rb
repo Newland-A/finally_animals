@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
+  get 'index', to: 'users#index', as: 'index'
   resources :animals
   delete '/animals/:id', to: "users#destroy"
   resources :companies
