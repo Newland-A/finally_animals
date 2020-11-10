@@ -1,6 +1,6 @@
 class AnimalsController < ApplicationController
   before_action :set_animal, only: [:show, :edit, :update, :destroy]
-  
+
   def index
   #   @user_animals = current_user.animals
     @animal = Animal.all
@@ -15,7 +15,7 @@ class AnimalsController < ApplicationController
     @animal = current_user.animals.build(animal_params)
     # binding.pry
     if @animal.save
-      # binding.pry
+      binding.pry
       redirect_to @animal, notice: "Animal Created"
     else
       flash.now[:alert] = "Please fill out all information:"
@@ -24,7 +24,9 @@ class AnimalsController < ApplicationController
   end
 
   def edit
+    binding.pry
     if !@animal #= Animal.find_by_id(params[:id])
+      binding.pry
       redirect_to animal_path
     end
   end
@@ -44,6 +46,7 @@ class AnimalsController < ApplicationController
   end
 
   def destroy
+    binding.pry
     @animal.destroy
     flash.now[:alert] = "Your animal has been deleted"
     redirect_to new_animal_path

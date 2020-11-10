@@ -1,10 +1,11 @@
-<% if @animal.errors.any? %>
-  <h5 class="error"><%= @animal.errors.full_messages.to_sentence %></h5>
-<% end %>
-
+<!--
+<%# if @animal.errors.any? %>
+  <h5 class="error"><%#= @animal.errors.full_messages.to_sentence %></h5>
+<%# end %>
+-->
 <h1>Hello <%= current_user.full_name %></h1>
 <%#= @all_animal.each do |animal| %>
-  
+  <% binding.pry %>
   <h2>Animals Name: <%= @animal.name %></h2>
   <h2>Animals Age: <%= @animal.age %></h2>
   <h2>Animals Gender: <%= @animal.gender %></h2>
