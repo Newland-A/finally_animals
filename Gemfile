@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 
 # omniauth installation 
-gem 'omniauth-rails_csrf_protection', '~> 0.1'
+# gem 'omniauth-rails_csrf_protection'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'koala'
