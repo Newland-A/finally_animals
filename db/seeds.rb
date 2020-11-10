@@ -23,6 +23,6 @@ end
 end
 
 20.times do
-Company.create(location: Faker::Company.name, user_id: rand(1..20), animal_id: rand(1..20), appointment_time: Faker::Date.between_except(from: 1.year.ago, to: 1.year.from_now, excepted: Date.today), address: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state)
+Company.create(location: Faker::Company.name, user_id: rand(1..20), appointment_time: Faker::Date.between_except(from: 1.year.ago, to: 1.year.from_now, excepted: Date.today), address: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state)
   # Faker::PhoneNumber.cell_phone
 end

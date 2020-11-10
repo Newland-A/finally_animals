@@ -5,7 +5,7 @@ class Animal < ApplicationRecord
   belongs_to :user
 
   def companies_attributes=(company_params)
-    binding.pry
+    # binding.pry
     company_params.values.each do |company_attrs|
       if company_attrs("location").present?
         company = Company.find_or_create_by(company_attrs)
@@ -14,7 +14,7 @@ class Animal < ApplicationRecord
     end
   end
 
-  def altered=(altered)
-    altered.reject(&:blank?)
-  end
+  # def altered=(altered)
+  #   altered.reject(&:blank?)
+  # end
 end
