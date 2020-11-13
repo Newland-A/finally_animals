@@ -5,8 +5,9 @@
 <% else %>
   <button><%= link_to "Sign Up", signup_path %></button>
   <button><%= link_to "Log In", login_path %></button>
-  <%= button_to 'Sign in via Github', '/auth/github'%>
-  <%= button_to 'Sign in via Facebook', '/auth/facebook'%>
+  <%= button_to 'Sign in via Github', auth_github_callback_path %>
+  <%= button_to 'Sign in via Facebook', '/auth/facebook' %>
+  <%#= button_to 'Sign in via Google', auth_google_callback_path %>
   
 <% end %>
 
@@ -26,5 +27,6 @@
     <%= f.address %><br />
     <%= f.city %><br />
     <%= f.state %><br />
+    <%= f.phone_number%>
     <br />
 <% end %>

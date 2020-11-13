@@ -23,8 +23,13 @@ class UsersController < ApplicationController
 
   def show
     @user_animals = current_user.animals
-    @companies = Company.find_by_id(params[:id])
+    
+    # @companies = Company.find_by_id(params[:id])
     # binding.pry
+  end
+
+  def edit
+    @user = User.find(params[:id])
   end
 
   def update

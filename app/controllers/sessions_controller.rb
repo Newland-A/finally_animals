@@ -24,6 +24,12 @@ class SessionsController < ApplicationController
     redirect_to '/'
   end
 
+  def redirect_to_failure
+    message_key = env['omniauth.error.type']
+    new_path = "#{env['SCRIPT_NAME']}#{OmniAuth.config.path_prefix}/failure?message=#{message_key}"
+    Rack::Response.new(["302 Moved"], 302, 'Location' => new_path).finish
+  end
+  
   def destroy
     session[:user_id] = nil
     redirect_to root_url, notice: "Logged out!"
