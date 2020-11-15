@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
 
   def new
-
   end
 
   def create
@@ -18,9 +17,7 @@ class SessionsController < ApplicationController
   def create_with_omni
     if params[:provider] == 'google_oauth2'
       @user = User.create_by_google_omniauth(auth)
-      # binding.pry
       session[:user_id] = @user.id
-      # binding.pry
       redirect_to @user
 
     elsif params[:provider] == 'github'
@@ -41,17 +38,10 @@ class SessionsController < ApplicationController
 
   def omniauth
     @user = User.create_by_google_omniauth(auth)
-
     session[:user_id] = @user.id
     redirect_to @user
   end
-
-  def redirect_to_failure 
-    message_key = env['omniauth.error.type']
-    new_path = "#{env['SCRIPT_NAME']}#{OmniAuth.config.path_prefix}/failure?message=#{message_key}"
-    Rack::Response.new(["302 Moved"], 302, 'Location' => new_path).finish
-  end
-
+  
   def destroy
     session[:user_id] = nil
     redirect_to root_url, notice: "Logged out!"
