@@ -1,16 +1,14 @@
 class SessionsController < ApplicationController
-  
+
   def new
 
   end
-#this is the login method
+
   def create
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to root_url, notice: "Logged in!"
-    # elsif 
-    #   
     else
       flash.now[:alert] = "Email or password is invalid"
       render "new"
@@ -18,18 +16,42 @@ class SessionsController < ApplicationController
   end
   
   def create_with_omni
-    # binding.pry
-    @user = User.find_or_create_from_auth_hash(auth_hash)
-    self.current_user = @user
-    redirect_to '/'
+    if params[:provider] == 'google_oauth2'
+      @user = User.create_by_google_omniauth(auth)
+      # binding.pry
+      session[:user_id] = @user.id
+      # binding.pry
+      redirect_to @user
+
+    elsif params[:provider] == 'github'
+      @user = User.create_by_github_omniauth(auth)
+      session[:user_id] = @user.id
+      redirect_to @user
+    else
+      @user = User.find_by(username: params[:user][:username])
+      if @user && @user.authenticate(password: params[:user][:password])
+        session[:user_id] = @user.id
+        redirect_to @user
+      else
+        flash[:error] = "Sorry, login info was incorrect. Please try again."
+        redirect_to login_path
+      end
+    end
   end
 
-  def redirect_to_failure
+  def omniauth
+    @user = User.create_by_google_omniauth(auth)
+
+    session[:user_id] = @user.id
+    redirect_to @user
+  end
+
+  def redirect_to_failure 
     message_key = env['omniauth.error.type']
     new_path = "#{env['SCRIPT_NAME']}#{OmniAuth.config.path_prefix}/failure?message=#{message_key}"
     Rack::Response.new(["302 Moved"], 302, 'Location' => new_path).finish
   end
-  
+
   def destroy
     session[:user_id] = nil
     redirect_to root_url, notice: "Logged out!"
@@ -37,7 +59,7 @@ class SessionsController < ApplicationController
 
   private
 
-  def auth_hash
+  def auth
     request.env['omniauth.auth']
   end
 end
