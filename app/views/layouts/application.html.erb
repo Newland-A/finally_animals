@@ -32,7 +32,7 @@
           <h4>Logged in: <%= current_user.full_name %>!</h4>      
           <button><a href="/logout">Log Out</a></button>
           <button><a href="/">Home</a></button><br />
-          <button><%= link_to "List Animals", user_path(current_user) %></button>
+          <button><%= link_to "List Animals", user_animals_path(current_user) %></button>
           <button><%= link_to "New Animal", new_animal_path %></button><br />
       <% else !logged_in? %>
           <button><a href="/login">Log In</a></button>

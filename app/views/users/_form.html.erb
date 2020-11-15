@@ -1,3 +1,7 @@
+<% if @user.errors.any? %>
+  <h5 class="error"><%= @user.errors.full_messages.to_sentence %></h5>
+<% end %>
+
 <%= form_for @user do |f| %>
 
   <%= f.label :first_name %>:

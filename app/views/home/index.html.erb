@@ -1,32 +1,29 @@
 <% if current_user %>
   Logged in as <%= current_user.full_name %>.
-  <%= link_to "List Animals", user_path(current_user) %>
+  <%= link_to "List Animals", user_animals_path(current_user) %>
   <%= link_to "Log Out", logout_path %>
 <% else %>
   <button><%= link_to "Sign Up", signup_path %></button>
   <button><%= link_to "Log In", login_path %></button>
-  <%= button_to 'Sign in via Github', auth_github_callback_path %>
-  <%= button_to 'Sign in via Facebook', '/auth/facebook' %>
-  <%#= button_to 'Sign in via Google', auth_google_callback_path %>
-  
+  <%= button_to 'Sign in via Github', '/auth/github' %>
+  <%= button_to 'Sign in via Google', '/auth/google_oauth2' %>  
 <% end %>
-
 
 <p id=”notice”><%= notice %></p>
 
-<h1>Home#IndexPage</h1>
-<h1> Welcome to Your New Animal Care Site </h1>
-
+<div class="welcome_header">
+  <h1> Welcome to Your New Animal Care Site </h1>
+</div>
 <p> This is an app where you can keep track of animals information. Medical records who owns what pet</p>
 
 
 <h2>Animal Assocaitions Locations Contact</h2>
+
 <% @companies.each do |f| %>
-    <%#= f.companies_id %>
-    <h3><%= f.location %></h3>
-    <%= f.address %><br />
-    <%= f.city %><br />
-    <%= f.state %><br />
-    <%= f.phone_number%>
+    <p><%= f.location %></p>
+    <p><%= f.address %></p>
+    <p><%= f.city %></p>
+    <p><%= f.state %></p>
+    <p><%= f.phone_number%></p>
     <br />
 <% end %>

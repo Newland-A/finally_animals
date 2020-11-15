@@ -4,5 +4,5 @@
     <li><%= link_to animal.name, animal %></li>
   <% end %>
 </ul>
-<p><%= link_to "Create a new animal", new_animal_path %></p>
+<p><%= link_to "Create a new animal", new_user_animal_path(current_user) %></p>
 <p><%= link_to "Google", "http://google.com" %></p>
