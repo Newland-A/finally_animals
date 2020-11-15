@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-gem 'dotenv-rails', groups: [:development, :test]
-
 ruby '2.6.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -25,15 +23,20 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 
 # omniauth installation 
+
 # gem 'omniauth-rails_csrf_protection'
 gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'koala'
-gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem 'omniauth-google-oauth2'
-gem 'activerecord-session_store'
-gem 'omniauth-twitter'
-gem 'twitter'
+gem 'omniauth-github'
+gem 'dotenv-rails'
+# gem 'omniauth-facebook'
+# gem 'koala'
+
+
+# gem 'activerecord-session_store'
+# gem 'omniauth-twitter'
+# gem 'twitter'
+
 # Use Faker gem to insert data
 gem 'faker'
 # Use Active Storage variant
@@ -46,7 +49,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry'
-  gem 'dotenv-rails'
+  # 
 end
 
 group :development do
