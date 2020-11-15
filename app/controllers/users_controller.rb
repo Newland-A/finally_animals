@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :destroy]
-
+  before_action :redirect_if_not_logged_in
   def index
     @user = User.find(user_params)
-    
   end
 
   def new
@@ -12,7 +11,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    # binding.pry
     if @user.save
       session[:user_id] = @user.id
       redirect_to @user
@@ -23,9 +21,6 @@ class UsersController < ApplicationController
 
   def show
     @user_animals = current_user.animals
-    
-    # @companies = Company.find_by_id(params[:id])
-    # binding.pry
   end
 
   def edit
@@ -33,23 +28,20 @@ class UsersController < ApplicationController
   end
 
   def update
-    # @user = User.find(params[:id])
     @user.update(user_params)
     redirect_to user_path(@user)
   end
 
   def destroy
-    # @user = User.find_by_id(params[:animal_id])
       @user.destroy
       flash.now[:alert] = "Your user has been deleted!!!"
       redirect_to new_user_path
   end
 
   private
-  # strong params
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find_by_id(params[:id])
   end
 
   def user_params
