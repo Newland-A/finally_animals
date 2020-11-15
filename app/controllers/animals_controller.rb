@@ -1,10 +1,9 @@
 class AnimalsController < ApplicationController
    before_action :set_animal, only: [:show, :update, :destroy]
     # before_action :get_user
+
   def index
-  #   @user_animals = current_user.animals
-    @animal = @user.animals
-  #   # binding.pry
+    @animal = current_user.animals
   end
 
   def new
@@ -26,14 +25,15 @@ class AnimalsController < ApplicationController
 
   def edit
     # @animal = User.find_by_id(params[:animal_id])
-    binding.pry
+    # binding.pry
     @animal = Animal.find_by_id(params[:id])
-    binding.pry
+    # binding.pry
   end
 
   def update
     # if @animal
     @animal = Animal.find(params[:id])
+    binding.pry
      if @animal.update(animal_params)
         redirect_to @animal
     else
