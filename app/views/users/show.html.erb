@@ -1,22 +1,24 @@
-<h1>Users Show Page</h1>
-
-<h3>List of your animals or Create a new animal</h3>
-<% if @user_animals  %>
-  
-<% @user_animals.each do |animal| %>
-  
-  <h4>Animals Name: <%= animal.name %></h4>
-  <h4>Animals Age: <%= animal.age %></h4>
-  <h4>Animals Gender: <%= animal.gender %></h4>
-  <h4>Animals Weight: <%= animal.weight %></h4>
-  <h4>Animals Species: <%= animal.species %></h4>
-  <h4>Animals Breed: <%= animal.breed %></h4>
-  <h4>Animals Color: <%= animal.color %></h4>
-  <h4>Animals Medical_info: <%= animal.medical_info %></h4>
-  <h4>Animals Altered: <%= animal.altered %></h4>
-  <button><%= link_to "Edit Animal", edit_animal_path(animal) %></button>
-  
-<% end %>
-<button><%= link_to "New Animal", new_animal_path(@animal) %></button>
-<button><%= link_to "Edit Your info", edit_user_path(current_user) %></button>
-<% end%>
+<div class="text-center">
+  <h3>List of your animals or Create a new animal</h3>
+</div>
+<div class="text-center">
+  <% if @user_animals  %>
+    
+  <% @user_animals.each do |animal| %>
+    
+    <h4>Animals Name: <%= animal.name %></h4>
+    <h4>Animals Age: <%= animal.age %></h4>
+    <h4>Animals Gender: <%= animal.gender %></h4>
+    <h4>Animals Weight: <%= animal.weight %></h4>
+    <h4>Animals Species: <%= animal.species %></h4>
+    <h4>Animals Breed: <%= animal.breed %></h4>
+    <h4>Animals Color: <%= animal.color %></h4>
+    <h4>Animals Medical_info: <%= animal.medical_info %></h4>
+    <h4>Animals Altered: <%= animal.altered %></h4>
+    <button><%= link_to "Edit Animal", edit_animal_path(animal) %></button>
+    
+  <% end %>
+  <button><%= link_to "New Animal", new_animal_path(@animal) %></button>
+  <button><%= link_to "Edit Your info", edit_user_path(current_user) %></button>
+  <% end%>
+</div>
