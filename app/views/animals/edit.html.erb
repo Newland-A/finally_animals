@@ -1,4 +1,4 @@
 <%= render partial: 'form' %><br />
 
-<button type="button" class="btn btn-warning"><%= link_to("Delete Animal", @animal, method: :delete, data:{confirm: "Are you sure you want to delete this animal?"}) %></button>
-<button type="button" class="btn btn-warning" class="text-secondary"><%= link_to 'Cancel Edit', animal_path %></button>
+<button type="button" class="btn btn-dark"><%= link_to("Delete Animal", @animal, method: :delete, data:{confirm: "Are you sure you want to delete this animal?"}) %></button>
+<button type="button" class="btn btn-dark" ><%= link_to 'Cancel Edit', animal_path %></button>

@@ -38,23 +38,4 @@
     <%= f.submit %>
   <% end %>
 </div>
-<br />
-<%# , options_for_select(["Is animal altered?", "Yes", "No", "Scheduled For Altering", "Pregnant", "Other"]) %>
-<%#= f.check_box("altered", {:multiple => true }, "Yes", nil )%>
-  <%#= f.label "Yes" %>
-  <%#= f.check_box("altered", {:multiple => true }, "No", nil )%>
-  <%#= f.label "No" %>
-  <%#= f.check_box("altered", {:multiple => true }, "Scheduled", nil )%>
-  <%#= f.label "Scheduled for altering" %>
-  <%#= f.check_box("altered", {:multiple => true }, "Pregnant", nil )%>
-  <%#= f.label "Pregnant" %>
-  <%#= f.check_box("altered", {:multiple => true }, "Other", nil )%>
-  <%#= f.label "Other" %>
 
-  
-   <%#= f.select :altered, options_for_select(["Is animal altered?", "Yes", "No", "Scheduled For Altering", "Pregnant", "Other"])%> 
-
-  <%#= f.collection_check_boxes(:animal, :altered, Animal.altered, :id) do |b|
-    b.label { b.check_box }
-   end
-   %>
