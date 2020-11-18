@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback', to: 'sessions#create_with_omni'
   
+  get 'contact', to: 'companies#show', as: 'contact'
 
   resources :sessions, only: [:new, :create, :destroy]
 
