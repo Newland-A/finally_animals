@@ -28,8 +28,13 @@ class AnimalsController < ApplicationController
 
   def update
     @animal = Animal.find(params[:id])
-     if @animal.update(animal_params)
+     if @animal
+      @animal.update(animal_params)
+      if @animal.errors.any?
+        render :edit
+      else
         redirect_to @animal
+      end
     else
       render :edit
     end
@@ -38,7 +43,7 @@ class AnimalsController < ApplicationController
   def destroy
     @animal.destroy
     flash.now[:alert] = "Your animal has been deleted"
-    redirect_to new_animal_path
+    redirect_to user_animals_path(current_user)
   end
 
   private
