@@ -4,7 +4,7 @@ class User < ApplicationRecord
   belongs_to :vet, class_name: "User", optional: true
  
   has_many :animals, dependent: :destroy
-
+  accepts_nested_attributes_for :animals, reject_if: proc { |attributes| attributes['name'].blank? || attributes['age'].blank? || attributes['gender'].blank? || attributes['altered'].blank?}
   has_secure_password
 
   validates :username, :email, presence: true, uniqueness: true
