@@ -27,9 +27,9 @@ gem install rails
 ```
 
 ## Install Dependencies
-Using [Bundler](https://github.com/bundler/bundler) and [Yarn](https://github.com/yarnpkg/yarn):
+Using [Bundler](https://github.com/bundler/bundler) 
 ```shell
-bundle && yarn
+bundle install 
 ```
 
 ## Initialize the database
