@@ -29,7 +29,7 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-github'
 gem 'dotenv-rails'
-# gem 'omniauth-facebook'
+gem 'omniauth-facebook'
 # gem 'koala'
 
 
