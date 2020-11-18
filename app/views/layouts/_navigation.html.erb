@@ -1,5 +1,5 @@
 
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
       <a class="navbar-brand" href="/">Animal Associations</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -7,6 +7,7 @@
 
       <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav mr-auto">
+        
           <li class="nav-item active">
             <a class="nav-link" href="/">Home
               <span class="sr-only">(current)</span>
@@ -15,6 +16,9 @@
           <% if logged_in? %>
           <li class="nav-item">
             <a class="nav-link" href="<%= user_animals_path(current_user) %>">List Animals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= animal_path(current_user) %>">All Animals</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<%= new_user_animal_path(current_user) %>">New Animal</a>
@@ -30,13 +34,13 @@
             <a class="nav-link" href="<%= signup_path %>">Signup!</a>
           </li>
           <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Account
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Google Signin!</a>
-              <a class="dropdown-item" href="#">Sign Up! action</a>
-              <a class="dropdown-item" href="#">Login!</a>
+              <a class="dropdown-item" href="/auth/google_oauth2">Google Signin!</a>
+              <a class="dropdown-item" href="<%= signup_path %>">Sign Up! action</a>
+              <a class="dropdown-item" href="<%= login_path %>">Login!</a>
             </div>
           </div>
           <% end %>
@@ -44,23 +48,13 @@
           <li class="nav-item">
             <a class="nav-link" href="<%= contact_path %>">Contact us</a>
           </li>
-          <!--
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Account</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="<%= signup_path %>">Signup</a>
-              <a class="dropdown-item" href="<%= login_path %>">Login</a>
-              <a class="dropdown-item" href="<%= logout_path %>">Logout</a>
-              <a class="dropdown-item" href="<%= contact_path %>">Contact us</a>
-            </div>
-          </li>
-          -->
+          
         </ul>
-<!--
+
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search">
           <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
         </form>
--->
+
       </div>
     </nav>

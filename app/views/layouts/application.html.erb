@@ -20,27 +20,18 @@
         <div class="flash <%= key %>"><%= value %></div>
       <% end %>
     </div>
-    
+
     <%= render 'layouts/navigation' %>
 
     <div class="container-fluid">
       <%= yield %>
     </div>
-    
+    <br />
+    <br />
+    <%= render 'layouts/navigation' %>
     <br />
       <footer class="branding">
       
-      <% if logged_in? %>
-      <br />
-          <h4>Logged in: <%= current_user.full_name %>!</h4>      
-          <button><a href="/logout">Log Out</a></button>
-          <button><a href="/">Home</a></button><br />
-          <button><%= link_to "List Animals", user_animals_path(current_user) %></button>
-          <button><%= link_to "New Animal", new_animal_path %></button><br />
-      <% else !logged_in? %>
-          <button><a href="/login">Log In</a></button>
-          <button><a href="/signup">Sign Up!</a></button>
-      <% end %>
         <br />
         <br />
         <small>&copy; 2020 <strong>Animal Associations</strong></small>
