@@ -5,8 +5,9 @@
 <% else %>
   <button><%= link_to "Sign Up", signup_path %></button>
   <button><%= link_to "Log In", login_path %></button>
-  <%= button_to 'Sign in via Github', '/auth/github' %>
-  <%= button_to 'Sign in via Google', '/auth/google_oauth2' %>  
+  <%= button_to 'Sign in via Github!', '/auth/github' %>
+  <%= button_to 'Sign in via Google!', '/auth/google_oauth2' %> 
+  <%= button_to 'Log in with Facebook!', '/auth/facebook' %>
 <% end %>
 
 <p id=”notice”><%= notice %></p>
@@ -14,16 +15,6 @@
 <div class="welcome_header">
   <h1> Welcome to Your New Animal Care Site </h1>
 </div>
-<p> This is an app where you can keep track of animals information. Medical records who owns what pet</p>
+<p> This is an app where you can keep track of animals information. Medical records who owns what pet. I honestly have no content information to go off of creating a website is a lot easier than creating a whole business model that doesn't actually exist. This website is a template of what it could be like for A Veternarians office or a place such as PetsMart. Where they can display products and Create an account to either buy the products or keep track of their animals information. Considering I don't have any products it makes it very difficult to create a fully functional website. I have spent more time trying to create a fake company to create a website from more than actually writing the code behind the website. </p>
 
-
-<h2>Animal Assocaitions Locations Contact</h2>
-
-<% @companies.each do |f| %>
-    <p><%= f.location %></p>
-    <p><%= f.address %></p>
-    <p><%= f.city %></p>
-    <p><%= f.state %></p>
-    <p><%= f.phone_number%></p>
-    <br />
-<% end %>
+<p>Thank you for the time to look at what I have created. I am confident in my ability of understanding what is happening behind that scenes. Figureing out how the site is routed and what view show what information. To keep the code as dry as possible by using as little logic in the controllers as much as possible. Create helper methods that can be used to not repeat code in multiple places. I appreciate the opportunity of getting to learn more with every day.</p>
