@@ -3,9 +3,8 @@ class Animal < ApplicationRecord
   has_many :companies, through: :animal_companies
 
   belongs_to :user
-# class method
+
   def companies_attributes=(company_params)
-    # binding.pry
     company_params.values.each do |company_attrs|
       if company_attrs("location").present?
         company = Company.find_or_create_by(company_attrs)
@@ -14,7 +13,4 @@ class Animal < ApplicationRecord
     end
   end
 
-  # def altered=(altered)
-  #   altered.reject(&:blank?)
-  # end
 end
