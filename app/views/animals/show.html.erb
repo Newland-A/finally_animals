@@ -1,15 +1,15 @@
 
 <h1>Hello <%= current_user.full_name %></h1>
 
-  <h2>Animals Name: <%= @animal.name %></h2>
-  <h2>Animals Age: <%= @animal.age %></h2>
-  <h2>Animals Gender: <%= @animal.gender %></h2>
-  <h2>Animals Weight: <%= @animal.weight %></h2>
-  <h2>Animals Species: <%= @animal.species %></h2>
-  <h2>Animals Breed: <%= @animal.breed %></h2>
-  <h2>Animals Color: <%= @animal.color %></h2>
-  <h2>Animals Medical_info: <%= @animal.medical_info %></h2>
-  <h2>Animals Altered: <%= @animal.altered %></h2>
+  <p>Animals Name: <%= @animal.name %></p>
+  <p>Animals Age: <%= @animal.age %></p>
+  <p>Animals Gender: <%= @animal.gender %></p>
+  <p>Animals Weight: <%= @animal.weight %></p>
+  <p>Animals Species: <%= @animal.species %></p>
+  <p>Animals Breed: <%= @animal.breed %></p>
+  <p>Animals Color: <%= @animal.color %></p>
+  <p>Animals Medical_info: <%= @animal.medical_info %></p>
+  <p>Altered: <%= @animal.altered %></p>
   <h2>Would you like to edit this animal?</h2>
   <button><%= link_to "Edit this Animal", edit_animal_path(@animal) %></button>
   <h2>Would you like to add another animal?</h2>
@@ -17,8 +17,13 @@
 
   <h2>Would you like to see all of your animals?</h2>
   <button><%= link_to "Show all animals", user_path(current_user) %></button>
-<br />
-<p> Companies this user is associated with</p>
+  <br />
+
+
+<div class="companies_animals">
+<h2> Companies this user is associated with</h2>
   <% @animal.companies.each do |company| %>
     <%= company.location %>
+    <%= company.phone_number %>
   <% end %>
+</div>

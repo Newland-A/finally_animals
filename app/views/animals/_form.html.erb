@@ -31,8 +31,9 @@
   <strong><%= f.label :medical_info %>:</strong><br />
   <%= f.text_area :medical_info, :cols => 20, :rows => 10, placeholder: "Enter any medications or injurys or surgeries the animals has had, please inform us of any medical concerns" %><br />
 
-  <%= f.label "Is Animal Altered?" %><br />
-  
+  <%= f.label "Is Animal Altered?" %>
+  <%= f.check_box :altered, {}, "true", "false" %><br />
+  <%= f.select :altered, options_for_select(["Is animal altered?", "Yes", "No", "Scheduled For Altering", "Pregnant", "Other"])%><br /><br />
   
 
   <%#= f.collection_check_boxes(:animal, :altered, Animal.altered, :id) do |b|
