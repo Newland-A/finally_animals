@@ -2,40 +2,42 @@
   <h5 class="error"><%= @animal.errors.full_messages.to_sentence %></h5>
 <% end %>
 
-<%= form_for @animal do |f| %>
+<div class="text-center">
+  <%= form_for @animal do |f| %>
 
-  <%= f.collection_select :company_ids, Company.all, :id, :location %><br />
+    <%= f.collection_select :company_ids, Company.all, :id, :location %><br />
 
-  <strong><%= f.label :name %>:</strong>
-  <%= f.text_field :name, class: @animal.errors.any? ? "error-field" : nil %><br />
+    <strong><%= f.label :name %>:</strong>
+    <%= f.text_field :name, class: @animal.errors.any? ? "error-field" : nil %><br />
 
-  <strong><%= f.label :age %>:</strong>
-  <%= f.number_field :age, min: "0" %><br />
+    <strong><%= f.label :age %>:</strong>
+    <%= f.number_field :age, min: "0" %><br />
 
-  <strong><%= f.label :gender %>:</strong>
-  <%= f.text_field :gender %><br />
+    <strong><%= f.label :gender %>:</strong>
+    <%= f.text_field :gender %><br />
 
-  <strong><%= f.label :weight %>:</strong>
-  <%= f.number_field :weight, min: "0" %><br />
+    <strong><%= f.label :weight %>:</strong>
+    <%= f.number_field :weight, min: "0" %><br />
 
-  <strong><%= f.label :species %>:</strong>
-  <%= f.text_field :species %><br />
-  
-  <strong><%= f.label :breed %>:</strong>
-  <%= f.text_field :breed %><br />
+    <strong><%= f.label :species %>:</strong>
+    <%= f.text_field :species %><br />
+    
+    <strong><%= f.label :breed %>:</strong>
+    <%= f.text_field :breed %><br />
 
-  <strong><%= f.label :color %>:</strong>
-  <%= f.text_field :color %><br />
+    <strong><%= f.label :color %>:</strong>
+    <%= f.text_field :color %><br />
 
-  <strong><%= f.label :medical_info %>:</strong><br />
-  <%= f.text_area :medical_info, :cols => 20, :rows => 10, placeholder: "Enter any medications or injurys or surgeries the animals has had, please inform us of any medical concerns" %><br />
+    <strong><%= f.label :medical_info %>:</strong><br />
+    <%= f.text_area :medical_info, :cols => 20, :rows => 10, placeholder: "Enter any medications or injurys or surgeries the animals has had, please inform us of any medical concerns" %><br />
 
-  <%= f.label "Is Animal Altered?" %>
-  <%= f.check_box :altered, {}, default: "false" %><br />
-  
-  
-  <%= f.submit %>
-<% end %>
+    <%= f.label "Is Animal Altered?" %>
+    <%= f.check_box :altered, {}, default: "false" %><br />
+    
+    
+    <%= f.submit %>
+  <% end %>
+</div>
 <br />
 <%# , options_for_select(["Is animal altered?", "Yes", "No", "Scheduled For Altering", "Pregnant", "Other"]) %>
 <%#= f.check_box("altered", {:multiple => true }, "Yes", nil )%>

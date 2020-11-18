@@ -1,11 +1,19 @@
-
+<div>
 <h4>Which Animal do you need information on today?</h4>
+</div>
+
 <div class="animal_name_list">
+  
   <ul>
     <% @animal.each do |animal| %>
-      <li><%= link_to animal.name, animal %></li>
+      
+        <li><%= link_to animal.name, animal %></li>
+        
     <% end %>
   </ul>
-</div>
-<button><%= link_to "Create a new animal", new_user_animal_path(current_user) %></button>
 
+</div>
+
+<div >
+  <button type="button" class="btn btn-dark" ><%= link_to "Create a new animal", new_user_animal_path(current_user) %></button>
+</div>

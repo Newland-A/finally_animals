@@ -1,8 +1,8 @@
-<div class="greeting_user">
+<div class="text-center">
   <h1>Hello <%= current_user.full_name %></h1>
 </div>
 
-<div class="animals_info">
+<div class="text-center">
   <p>Animals Name: <%= @animal.name %></p>
   <p>Animals Age: <%= @animal.age %></p>
   <p>Animals Gender: <%= @animal.gender %></p>
@@ -14,20 +14,33 @@
   <p>Altered: <%= @animal.altered %></p>
 </div>
 
-<div class="animal_buttons">
-  <h4>Would you like to edit this animal?</h4>
-  <button><%= link_to "Edit this Animal", edit_animal_path(@animal) %></button>
-  <h4>Would you like to add another animal?</h4>
-  <button><%= link_to "Add Another Animal", new_animal_path %></button>
-  <h4>Would you like to see all of your animals?</h4>
-  <button><%= link_to "Show all animals", user_path(current_user) %></button>
+<div class="text-center">
+  <div class="btn btn-dark disabled">
+    <button type="button" class="btn btn-secondary"><%= link_to "Edit this Animal", edit_animal_path(@animal) %></button>
+  </div>
+
+  <div class="btn btn-dark disabled">
+    <button type="button" class="btn btn-secondary"><%= link_to "Add Another Animal", new_animal_path %></button>
+  </div>
+  
+  <div class="btn btn-dark disabled">
+    <button type="button" class="btn btn-secondary"><%= link_to "Show all animals", user_path(current_user) %></button>
+    </div>
   <br />
+  </div>
 </div>
 
-<div class="companies_animals">
-  <h2> Companies this user is associated with</h2>
+<div class="text-center">
+  <h2> Location This Animal Visits:</h2>
     <% @animal.companies.each do |company| %>
-      <%= company.location %>
-      <%= company.phone_number %>
+      <strong><%= company.location %></strong>
+      <p>
+        <%= company.address %>,
+        <%= company.city %>,
+        <%= company.state %>
+      </p>
+      <p>
+        <%= company.phone_number %>
+      </p>
     <% end %>
 </div>
