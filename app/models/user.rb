@@ -4,7 +4,9 @@ class User < ApplicationRecord
   belongs_to :vet, class_name: "User", optional: true
  
   has_many :animals, dependent: :destroy
+
   accepts_nested_attributes_for :animals, reject_if: proc { |attributes| attributes['name'].blank? || attributes['age'].blank? || attributes['gender'].blank? || attributes['altered'].blank?}
+
   has_secure_password
 
   validates :username, :email, presence: true, uniqueness: true
@@ -24,13 +26,13 @@ class User < ApplicationRecord
     self.find_or_create_by(username: auth[:info][:email]) do |u|
     u.id = User.last.id + 1
     u.email = auth[:info][:email]
-    u.first_name = auth[:info][:first_name]
-    u.last_name = auth[:info][:last_name]
+    u.first_name = auth[:info][:name]
+    u.last_name = auth[:info][:name]
     u.password = SecureRandom.hex
     end
   end
 
-  def self.create_by_facebook_omniauth
+  def self.create_by_facebook_omniauth(auth)
     self.find_or_create_by(username: auth[:info][:email]) do |u|
       u.id = User.last.id + 1
       u.email = auth[:info][:email]
