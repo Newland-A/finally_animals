@@ -19,7 +19,15 @@
   </div>
 
   <div class=”actions”>
-    <%= submit_tag "Login" %>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= submit_tag "Login" %></p>
   </div>
   
 <% end %>
+
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OR </h3>
+
+<div class=btn-group-vertical >
+  <button type="button" class="btn btn-dark "><%= link_to 'Signin via Google', '/auth/google_oauth2' %></button><br />
+  <button type="button" class="btn btn-dark "><%= link_to 'Signin via Facebook', '/auth/facebook' %></button><br />
+  <button type="button" class="btn btn-dark "><%= link_to 'Signin via Github', '/auth/github' %></button>
+</div>
