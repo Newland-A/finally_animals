@@ -17,11 +17,17 @@
           <a class="nav-link" href="<%= user_animals_path(current_user) %>">List Animals</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<%= animal_path(current_user) %>">All Animals</a>
+          <a class="nav-link" href="<%= user_path(current_user) %>">All Animals</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="<%= new_user_animal_path(current_user) %>">New Animal</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= edit_user_path(current_user) %>"><%= current_user.email %> Info</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= contact_path %>">Contact us</a>
+        </li> 
         <li class="nav-item">
           <a class="nav-link" href="<%= logout_path %>">Logout</a>
         </li>
@@ -46,5 +52,14 @@
         </div>
       <% end %>
     </ul>
-  </div>
+   
+    <div class="input-group">
+      <%= form_tag(search_page_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search for...", class: 'form-control' %>
+        <span class="input-group-btn"> -->
+          <%= submit_tag "Search", class: 'btn btn-dark' %>
+      </span>
+      <% end %>
+    </div>
+  </div> 
 </nav>
