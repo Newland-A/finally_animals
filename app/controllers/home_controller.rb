@@ -5,6 +5,9 @@ class HomeController < ApplicationController
     #  @companies = Company.find(company_params)
   end
 
+  def search
+
+  end
   private
 
   # def company_params
