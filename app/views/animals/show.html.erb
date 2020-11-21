@@ -1,8 +1,9 @@
 <div class="text-center">
-  <h1>Hello <%= current_user.full_name %></h1>
+  <h1>Logged in as: <%= current_user.email %></h1>
 </div>
 
 <div class="text-center">
+
   <p>Animals Name: <%= @animal.name %></p>
   <p>Animals Age: <%= @animal.age %></p>
   <p>Animals Gender: <%= @animal.gender %></p>
@@ -12,9 +13,11 @@
   <p>Animals Color: <%= @animal.color %></p>
   <p>Animals Medical_info: <%= @animal.medical_info %></p>
   <p>Altered: <%= @animal.altered %></p>
+  
 </div>
 
 <div class="text-center">
+
   <div class="btn btn-dark disabled">
     <button type="button" class="btn btn-secondary"><%= link_to "Edit this Animal", edit_animal_path(@animal) %></button>
   </div>
@@ -25,12 +28,12 @@
   
   <div class="btn btn-dark disabled">
     <button type="button" class="btn btn-secondary"><%= link_to "Show all animals", user_path(current_user) %></button>
-    </div>
-  <br />
   </div>
+
 </div>
 
 <div class="text-center">
+
   <h2> Location This Animal Visits:</h2>
     <% @animal.companies.each do |company| %>
       <strong><%= company.location %></strong>
@@ -43,4 +46,5 @@
         <%= company.phone_number %>
       </p>
     <% end %>
+
 </div>
