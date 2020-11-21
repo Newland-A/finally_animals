@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   
   get 'contact', to: 'companies#show', as: 'contact'
 
+  get '/search' => 'home#search', :as => 'search_page'
+
   resources :sessions, only: [:new, :create, :destroy]
 
   resources :users do
@@ -19,5 +21,5 @@ Rails.application.routes.draw do
   end
 
   resources :animals 
-
+  
 end
