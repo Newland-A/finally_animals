@@ -1,6 +1,6 @@
 class AnimalsController < ApplicationController
    before_action :set_animal, only: [:show, :update, :destroy]
-  
+    before_action :redirect_if_not_logged_in
   def index
     @animal = current_user.animals
   end
