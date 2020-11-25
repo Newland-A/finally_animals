@@ -27,7 +27,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="<%= contact_path %>">Contact us</a>
-        </li> 
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="<%= logout_path %>">Logout</a>
         </li>
@@ -52,14 +52,15 @@
         </div>
       <% end %>
     </ul>
-   
+   <!--
     <div class="input-group">
       <%= form_tag(search_page_path, :method => "get", id: "search-form") do %>
         <%= text_field_tag :search, params[:search], placeholder: "Search for...", class: 'form-control' %>
-        <span class="input-group-btn"> -->
+        <span class="input-group-btn"> 
           <%= submit_tag "Search", class: 'btn btn-dark' %>
       </span>
       <% end %>
     </div>
+-->
   </div> 
 </nav>

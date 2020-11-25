@@ -8,8 +8,8 @@
     <%= f.collection_select :company_ids, Company.all, :id, :location %><br />
 
     <strong><%= f.label :name %>:</strong>
-    <%= f.text_field :name%><br />
-<!--, class: @animal.errors.any? ? "error-field" : nil -->
+    <%= f.text_field :name %><br />
+
     <strong><%= f.label :age %>:</strong>
     <%= f.number_field :age, min: "0" %><br />
 
@@ -33,7 +33,6 @@
 
     <%= f.label "Is Animal Altered?" %>
     <%= f.check_box :altered, {}, default: "false" %><br />
-    
     
     <%= f.submit "Save Animal", data: {confirm: "I'm Happy With It!!!"} %>
   <% end %>
