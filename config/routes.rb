@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   get '/search' => 'home#search', :as => 'search_page'
 
+  get '/gender_show' => 'animals#gender_show', :as => 'gender'
+
   resources :sessions, only: [:new, :create, :destroy]
 
   resources :users do

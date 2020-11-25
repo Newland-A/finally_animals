@@ -21,6 +21,14 @@ class AnimalsController < ApplicationController
   end
   
   def show
+
+  end
+
+  def gender_show
+    # @animal = Animal.all
+    @males = current_user.animals.male_animals
+    @females = current_user.animals.female_animals
+    
   end
 
   def edit

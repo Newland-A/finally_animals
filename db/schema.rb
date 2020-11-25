@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_10_213431) do
+ActiveRecord::Schema.define(version: 2020_11_25_165449) do
 
   create_table "animal_companies", force: :cascade do |t|
     t.integer "animal_id"

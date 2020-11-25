@@ -6,6 +6,9 @@ class Animal < ApplicationRecord
 
   belongs_to :user
 
+  scope :male_animals, -> { where(gender: 'Male') }
+  scope :female_animals, -> { where(gender: 'Female') }
+
   def companies_attributes=(company_params)
     company_params.values.each do |company_attrs|
       if company_attrs("location").present?
