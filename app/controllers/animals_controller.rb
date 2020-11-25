@@ -1,6 +1,7 @@
 class AnimalsController < ApplicationController
-   before_action :set_animal, only: [:show, :update, :destroy]
-    before_action :redirect_if_not_logged_in
+  before_action :set_animal, only: [:show, :edit, :update, :destroy]
+  before_action :redirect_if_not_logged_in
+
   def index
     @animal = current_user.animals
   end
@@ -15,7 +16,7 @@ class AnimalsController < ApplicationController
       redirect_to @animal, notice: "Animal Created"
     else
       flash.now[:alert] = "Please fill out all information:"
-      redirect_to new_animal_path, notice: "Create New Animal"
+      render :new 
     end
   end
   
@@ -23,11 +24,9 @@ class AnimalsController < ApplicationController
   end
 
   def edit
-    @animal = Animal.find_by_id(params[:id])
   end
 
   def update
-    @animal = Animal.find(params[:id])
      if @animal
       @animal.update(animal_params)
       if @animal.errors.any?
