@@ -5,7 +5,7 @@ class User < ApplicationRecord
  
   has_many :animals, dependent: :destroy
 
-  accepts_nested_attributes_for :animals, reject_if: proc { |attributes| attributes['name'].blank? || attributes['gender'].blank? || attributes['altered'].blank?}
+  accepts_nested_attributes_for :animals, reject_if: proc { |attributes| attributes['name'].blank? || attributes['gender'].blank? || attributes['species'].blank?}
 
   has_secure_password
 
@@ -24,21 +24,21 @@ class User < ApplicationRecord
 
   def self.create_by_github_omniauth(auth)
     self.find_or_create_by(username: auth[:info][:email]) do |u|
+      name = auth[:info][:name].split
     u.id = User.last.id + 1
     u.email = auth[:info][:email]
-    u.first_name = auth[:info][:name]
-    u.last_name = auth[:info][:name]
+    u.first_name = name[0]
+    u.last_name = name[1]
     u.password = SecureRandom.hex
     end
   end
 
   def self.create_by_facebook_omniauth(auth)
-    binding.pry
     self.find_or_create_by(username: auth[:info][:email]) do |u|
       u.id = User.last.id + 1
-      u.email = auth[:info][:email]
       u.first_name = auth[:info][:name]
       u.last_name = auth[:info][:name]
+      u.email = auth[:info][:email]
       u.password = SecureRandom.hex
       end
   end
