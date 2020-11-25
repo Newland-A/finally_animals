@@ -2,7 +2,7 @@ class Animal < ApplicationRecord
   has_many :animal_companies
   has_many :companies, through: :animal_companies
 
-  validates_presence_of :name, :age, :gender, message: "Name, Age, Gender, Approximate weight, Species, Breed and Any Medical information must be provided"
+  validates_presence_of :name, :gender, :species
 
   belongs_to :user
 
