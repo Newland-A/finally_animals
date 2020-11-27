@@ -24,13 +24,14 @@ class AnimalsController < ApplicationController
 
   end
 
-  def gender_show
-    # @animal = Animal.all
-    @males = current_user.animals.male_animals
+  def females_show
     @females = current_user.animals.female_animals
-    
   end
 
+  def males_show
+    @males = current_user.animals.male_animals
+  end
+  
   def edit
   end
 

@@ -1,0 +1,9 @@
+<% if @males != nil %>
+  <% @males.each do |animal| %>
+    <p> Name: <%= animal.name %></p>
+    <p>Gender: <%= animal.gender %></p>
+    <p>Altered: <%= animal.altered %></p>
+  <% end %>
+<% else %>
+    <h3>You don't have any male animals in the system</h3> 
+<% end %>

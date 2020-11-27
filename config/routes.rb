@@ -14,7 +14,9 @@ Rails.application.routes.draw do
 
   get '/search' => 'home#search', :as => 'search_page'
 
-  get '/gender_show' => 'animals#gender_show', :as => 'gender'
+  get '/females_show' => 'animals#females_show', :as => 'female'
+
+  get '/males_show' => 'animals#males_show', :as => 'male'
 
   resources :sessions, only: [:new, :create, :destroy]
 
